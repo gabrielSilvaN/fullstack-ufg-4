@@ -2,8 +2,8 @@ package com.example.demo.ctrl;
 
 import java.util.List;
 
-import com.example.demo.business.HotelBusiness;
-import com.example.demo.entities.Hotel;
+import com.example.demo.business.HospedagemBusiness;
+import com.example.demo.entities.Hospedagem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,34 +18,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "hotel")
-public class HotelCtrl {
-
+@RequestMapping(value = "hospedagem")
+public class HospedagemCtrl {
     @Autowired
-    HotelBusiness business;
+    HospedagemBusiness business;
 
     @GetMapping
-    public ResponseEntity<List<Hotel>> findAll() {
-        List<Hotel> list = business.findAll();
+    public ResponseEntity<List<Hospedagem>> findAll() {
+        List<Hospedagem> list = business.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Hotel> findById(@PathVariable Integer id) {
-        Hotel hotel = business.findById(id);
-        return ResponseEntity.ok(hotel);
+    public ResponseEntity<Hospedagem> findById(@PathVariable Integer id) {
+        Hospedagem hospedagem = business.findById(id);
+        return ResponseEntity.ok(hospedagem);
     }
 
     @PostMapping
-    public ResponseEntity<Hotel> insert(@RequestBody Hotel h) {
-        Hotel insertedHotel = this.business.insert(h);
-        return ResponseEntity.status(201).body(insertedHotel);
+    public ResponseEntity<Hospedagem> insert(@RequestBody Hospedagem h) {
+        Hospedagem insertedHospedagem = this.business.insert(h);
+        return ResponseEntity.status(201).body(insertedHospedagem);
     }
 
     @PutMapping
-    public ResponseEntity<Hotel> update(@RequestBody Hotel h) {
-        Hotel updatedHotel = this.business.insert(h);
-        return ResponseEntity.status(201).body(updatedHotel);
+    public ResponseEntity<Hospedagem> update(@RequestBody Hospedagem h) {
+        Hospedagem updatedHospedagem = this.business.insert(h);
+        return ResponseEntity.status(201).body(updatedHospedagem);
     }
 
     @DeleteMapping("/{id}")

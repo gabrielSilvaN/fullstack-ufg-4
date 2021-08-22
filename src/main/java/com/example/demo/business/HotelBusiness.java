@@ -32,4 +32,8 @@ public class HotelBusiness {
         return this.repository.save(hotel);
     }
 
+    public void delete(Integer id) {
+        this.repository.deleteById(id);
+    }
+
 }

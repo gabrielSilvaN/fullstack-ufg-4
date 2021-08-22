@@ -2,8 +2,8 @@ package com.example.demo.ctrl;
 
 import java.util.List;
 
-import com.example.demo.business.HotelBusiness;
-import com.example.demo.entities.Hotel;
+import com.example.demo.business.HospedeBusiness;
+import com.example.demo.entities.Hospede;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,39 +18,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "hotel")
-public class HotelCtrl {
+@RequestMapping(value = "hospede")
+public class HospedeCtrl {
 
     @Autowired
-    HotelBusiness business;
+    HospedeBusiness business;
 
     @GetMapping
-    public ResponseEntity<List<Hotel>> findAll() {
-        List<Hotel> list = business.findAll();
+    public ResponseEntity<List<Hospede>> findAll() {
+        List<Hospede> list = business.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Hotel> findById(@PathVariable Integer id) {
-        Hotel hotel = business.findById(id);
-        return ResponseEntity.ok(hotel);
+    public ResponseEntity<Hospede> findById(@PathVariable Integer id) {
+        Hospede hospede = business.findById(id);
+        return ResponseEntity.ok(hospede);
     }
 
     @PostMapping
-    public ResponseEntity<Hotel> insert(@RequestBody Hotel h) {
-        Hotel insertedHotel = this.business.insert(h);
-        return ResponseEntity.status(201).body(insertedHotel);
+    public ResponseEntity<Hospede> insert(@RequestBody Hospede h) {
+        Hospede insertedHospedagem = this.business.insert(h);
+        return ResponseEntity.status(201).body(insertedHospedagem);
     }
 
     @PutMapping
-    public ResponseEntity<Hotel> update(@RequestBody Hotel h) {
-        Hotel updatedHotel = this.business.insert(h);
-        return ResponseEntity.status(201).body(updatedHotel);
+    public ResponseEntity<Hospede> update(@RequestBody Hospede h) {
+        Hospede updatedHospede = this.business.insert(h);
+        return ResponseEntity.status(201).body(updatedHospede);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         this.business.delete(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
+    
 }

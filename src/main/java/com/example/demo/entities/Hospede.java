@@ -26,13 +26,13 @@ public class Hospede implements Serializable {
     private Date dtNascimento;
 
     @Column(name = "cpf")
-    private int cpf;
+    private Integer cpf;
 
     public Hospede() {
         super();
     }
 
-    public Hospede(Integer idHospede, String nmHospede, Date dtNascimento, int cpf) {
+    public Hospede(Integer idHospede, String nmHospede, Date dtNascimento, Integer cpf) {
         super();
         this.idHospede = idHospede;
         this.nmHospede = nmHospede;

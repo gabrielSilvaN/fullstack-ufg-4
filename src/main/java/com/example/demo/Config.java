@@ -1,6 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.entities.Hospede;
 import com.example.demo.entities.Hotel;
+import com.example.demo.repositories.HospedeRepository;
 import com.example.demo.repositories.HotelRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class Config implements CommandLineRunner {
     @Autowired
     private HotelRepository hotelRepository;
 
+    @Autowired
+    private HospedeRepository hospedeRepository;
+
     @Override
     public void run(String... args) throws Exception {
         Hotel h1 = new Hotel(null, "Palace Hotel", "Avenida Goiás - Centro", 5);
@@ -25,5 +30,10 @@ public class Config implements CommandLineRunner {
         hotelRepository.save(h2);
         hotelRepository.save(h3);
 
+        
+
+        // Hospede ho1 = new Hospede(null, "Gabriel Silva", "1996-11-16", 123456);
+
+        // hospedeRepository.save(ho1);
     }
 }
