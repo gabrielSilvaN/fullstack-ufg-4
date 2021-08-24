@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "tb_hospede")
 public class Hospede implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_hospede")
@@ -40,11 +42,11 @@ public class Hospede implements Serializable {
         this.cpf = cpf;
     }
 
-    public int getIdHospede() {
+    public Integer getIdHospede() {
         return idHospede;
     }
 
-    public void setIdHospede(int idHospede) {
+    public void setIdHospede(Integer idHospede) {
         this.idHospede = idHospede;
     }
 
@@ -64,11 +66,11 @@ public class Hospede implements Serializable {
         this.dtNascimento = dtNascimento;
     }
 
-    public int getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
 

@@ -13,33 +13,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="tb_quarto")
-public class Quarto implements Serializable{
-	/**
-	 * 
-	 */
+@Table(name = "tb_quarto")
+public class Quarto implements Serializable {
+
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_quarto")
+	@Column(name = "id_quarto")
 	private Integer idQuarto;
-	
+
 	@OneToOne
-	@JoinColumn(name="hotel_id")
+	@JoinColumn(name = "hotel_id")
 	private Hotel hotel;
-	
-	@Column(name="categoria_quarto")
+
+	@Column(name = "categoria_quarto")
 	private CategoriaQuarto categoriaQuarto;
-	
-	@Column(name="quantidade_leito")
+
+	@Column(name = "quantidade_leito")
 	private Integer qtdLeito;
-	
-	@Column(name="numero_quarto")
+
+	@Column(name = "numero_quarto")
 	private Integer nrQuarto;
-	
-	@Column(name="preco_diaria")
+
+	@Column(name = "preco_diaria")
 	private Double prDiaria;
 
 	public Quarto() {

@@ -42,17 +42,23 @@ public class HospedeCtrl {
         return ResponseEntity.status(201).body(insertedHospedagem);
     }
 
+    // @PostMapping
+    // public String insert(@RequestBody Hospede h) {
+
+    // System.out.println(h);
+    // return "Deu bom";
+    // }
+
     @PutMapping
     public ResponseEntity<Hospede> update(@RequestBody Hospede h) {
         Hospede updatedHospede = this.business.insert(h);
         return ResponseEntity.status(201).body(updatedHospede);
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         this.business.delete(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
-    
+
 }

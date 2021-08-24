@@ -23,9 +23,9 @@ public class HospedeBusiness {
         return hospede;
     }
 
-    public Hospede insert(Hospede hotel) {
+    public Hospede insert(Hospede hospede) {
 
-        return this.repository.save(hotel);
+        return this.repository.save(hospede);
     }
 
     public Hospede update(Hospede hospede) {
