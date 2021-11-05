@@ -28,17 +28,20 @@ public class Config implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Hotel h1 = new Hotel(null, "Palace Hotel", "Avenida Goiás - Centro", 5);
-        Hotel h2 = new Hotel(null, "Grande Hotel", "Rua 3 - Centro", 3);
-        Hotel h3 = new Hotel(null, "Ibis", "Av. Ahanguera", 4);
 
-        hotelRepository.save(h1);
-        hotelRepository.save(h2);
-        hotelRepository.save(h3);
+        for (int i = 0; i <= 100; i++) {
+            Hotel h = null;
+            if (i % 2 == 0)
+                h = new Hotel(null, "Palace Hotel " + i, "Avenida Goiás - Centro", 5);
+            if (i % 2 != 0)
+                h = new Hotel(null, "Grande Hotel " + i, "Rua 3 - Centro", 3);
+
+            hotelRepository.save(h);
+
+        }
 
         hospedeRepository.save(createHospede("Gabriel Silva", "1996-11-16", 1234));
         hospedeRepository.save(createHospede("Gabriel Olegário", "1996-12-16", 1235));
-
 
     }
 

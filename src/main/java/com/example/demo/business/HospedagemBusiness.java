@@ -3,6 +3,8 @@ package com.example.demo.business;
 import com.example.demo.repositories.HospedagemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.example.demo.entities.Hospedagem;
 import java.util.List;
@@ -13,6 +15,10 @@ public class HospedagemBusiness {
 
     @Autowired
     HospedagemRepository repository;
+
+    public Page<Hospedagem> paginatorFindAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
 
     public List<Hospedagem> findAll() {
         return this.repository.findAll();

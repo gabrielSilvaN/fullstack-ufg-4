@@ -1,12 +1,13 @@
 package com.example.demo.business;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.entities.Quarto;
 import com.example.demo.repositories.QuartoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.entities.Quarto;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class QuartoBusiness {

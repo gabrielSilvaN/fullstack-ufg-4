@@ -1,17 +1,25 @@
 package com.example.demo.business;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.entities.Hotel;
 import com.example.demo.repositories.HotelRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import com.example.demo.entities.Hotel;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HotelBusiness {
     @Autowired
     HotelRepository repository;
+
+    // PaginatorFindAll
+    public Page<Hotel> paginatorFindAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
 
     public List<Hotel> findAll() {
         return this.repository.findAll();
